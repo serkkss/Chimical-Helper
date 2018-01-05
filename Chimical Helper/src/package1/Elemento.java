@@ -1,11 +1,10 @@
+package package1;
+
 /**
  * Java Object: Elemento
  *
  * Developed by: Salvatore Antonio Addimando
  */
-
-package package1;
-
 class Elemento{
     //Attributi della classe
     private String N;
@@ -111,6 +110,10 @@ class Elemento{
     }
 
     //RADICE
-    public String getRadice() { return this.radice; }
-    public void setRadice(String radice) { this.radice = radice; }
+    public String getRadice() {
+        return this.radice;
+    }
+    public void setRadice(String radice) {
+        this.radice = radice;
+    }
 }

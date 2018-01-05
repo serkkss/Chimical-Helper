@@ -1,11 +1,10 @@
+package package1;
+
 /**
  * Java Methods Collection: Formulario
  *
  * Developed by: Sergiu Florea
  */
-
-package package1;
-
 public class Formulario {
 /*
   bilancio

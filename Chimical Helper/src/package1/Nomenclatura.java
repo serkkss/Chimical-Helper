@@ -1,31 +1,28 @@
+package package1;
+
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Nullable;
+
 /**
  * Java Methods Collection: Nomenclatura
  *
  * Developed by: Salvatore Antonio Addimando
  */
-
-package package1;
-
-/*
-import java.util.HashMap;
-import java.util.Map;
-*/
-
 public class Nomenclatura {
 
-    static String message1 = new String("Exception: NoCompostoException\n\tMessage: Il composto non e' valido");
-    static String message2 = new String("Exception: PiuMetalliException\n\tMessage: Sono stati inseriti troppi metalli.");
-    static String message3 = new String("Exception: ImmissioneErrataException\n\tMessage: Inserimento Errato");
+    private static final String message1 = "Exception: NoCompostoException\n\tMessage: Il composto non e' valido";
+    private static final String message2 = "Exception: PiuMetalliException\n\tMessage: Sono stati inseriti troppi metalli.";
+    private static final String message3 = "Exception: ImmissioneErrataException\n\tMessage: Inserimento Errato";
 
     /**
-     *
      * @param a First element (Type: integer)
      * @param b Second element (Type: integer)
      * @param Na Quantity of the first one (Type: integer)
      * @param Nb Quantity of the second one (Type: integer)
      * @return The nomenclature of a binary compound (Type: String)
      */
-    public static String getNomeComposto2(Elemento a, Elemento b, int Na, int Nb) {
+    @Nullable
+    static String getNomeComposto2(Elemento a, Elemento b, int Na, int Nb) {
         boolean pass = false;
         boolean pass2 = false;
 
@@ -190,7 +187,9 @@ public class Nomenclatura {
      * @param NIone If there is an Ion determine its quantity (Type: integer)
      * @return The nomenclature of a ternary compound (Type: String)
      */
-    public static String getNomeComposto3(Elemento a, Elemento b, Elemento c, int Na, int Nb, int Nc, int NIone){
+
+     @Nullable
+     static String getNomeComposto3(Elemento a, Elemento b, Elemento c, int Na, int Nb, int Nc, int NIone){
         if(Nb != 0 && NIone != 0 || Nc != 0 && NIone != 0){
             System.err.println(message3);
         }else if(a.isMetallo() && b.isMetallo() || b.isMetallo() && c.isMetallo() || a.isMetallo() && c.isMetallo()){
@@ -370,6 +369,7 @@ public class Nomenclatura {
      * @param Nd Quantity of the fourth one (Type: integer)
      * @return The nomenclature of a quaternary compound (Type: String)
      */
+    @Nullable
     public static String getNomeComposto4(Elemento a, Elemento b, Elemento c, Elemento d, int Na, int Nb, int Nc, int Nd){
         if(a.getN() == "Mn" || b.getN() == "Mn" || c.getN() == "Mn" || d.getN() == "Mn" || a.getN() == "Cr" || b.getN() == "Cr" || c.getN() == "Cr" || d.getN() == "Cr"){
             System.err.println(message1);
@@ -429,5 +429,20 @@ public class Nomenclatura {
             System.err.println(message1);
         }
         return null;
+    }
+
+    @Contract(pure = true)
+    public static String getMessage1() {
+        return message1;
+    }
+
+    @Contract(pure = true)
+    public static String getMessage2() {
+        return message2;
+    }
+
+    @Contract(pure = true)
+    public static String getMessage3() {
+        return message3;
     }
 }
